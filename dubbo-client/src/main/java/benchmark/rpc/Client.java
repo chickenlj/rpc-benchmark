@@ -1,8 +1,7 @@
 package benchmark.rpc;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
+import benchmark.bean.User;
+import benchmark.service.UserService;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
@@ -16,9 +15,8 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import benchmark.bean.Page;
-import benchmark.bean.User;
-import benchmark.service.UserService;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
 public class Client extends AbstractClient {
@@ -44,15 +42,7 @@ public class Client extends AbstractClient {
 	}
 
 	@Benchmark
-	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime })
-	@OutputTimeUnit(TimeUnit.MILLISECONDS)
-	@Override
-	public boolean existUser() throws Exception {
-		return super.existUser();
-	}
-
-	@Benchmark
-	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime })
+	@BenchmarkMode({ Mode.Throughput})
 	@OutputTimeUnit(TimeUnit.MILLISECONDS)
 	@Override
 	public boolean createUser() throws Exception {
@@ -60,28 +50,28 @@ public class Client extends AbstractClient {
 	}
 
 	@Benchmark
-	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime })
+	@BenchmarkMode({ Mode.Throughput })
 	@OutputTimeUnit(TimeUnit.MILLISECONDS)
 	@Override
 	public User getUser() throws Exception {
 		return super.getUser();
 	}
-
-	@Benchmark
-	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime })
-	@OutputTimeUnit(TimeUnit.MILLISECONDS)
-	@Override
-	public Page<User> listUser() throws Exception {
-		return super.listUser();
-	}
+//
+//	@Benchmark
+//	@BenchmarkMode({ Mode.Throughput})
+//	@OutputTimeUnit(TimeUnit.MILLISECONDS)
+//	@Override
+//	public Page<User> listUser() throws Exception {
+//		return super.listUser();
+//	}
 
 	public static void main(String[] args) throws Exception {
                System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY);
 		Options opt = new OptionsBuilder()//
 				.include(Client.class.getSimpleName())//
-				.warmupIterations(3)//
-				.warmupTime(TimeValue.seconds(10))//
-				.measurementIterations(3)//
+				.warmupIterations(1)//
+				.warmupTime(TimeValue.seconds(30))//
+				.measurementIterations(1)//
 				.measurementTime(TimeValue.seconds(args.length >= 3 ? Integer.parseInt(args[2]) : 10))//
 				.threads(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY)//
 				.forks(1)//
