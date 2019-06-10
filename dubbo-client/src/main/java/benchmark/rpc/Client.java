@@ -66,16 +66,17 @@ public class Client extends AbstractClient {
 //	}
 
 	public static void main(String[] args) throws Exception {
-               System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY);
+               System.err.println(args.length >= 2 ? Integer.parseInt(args[0]) : CONCURRENCY);
+		System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY);
 		Options opt = new OptionsBuilder()//
 				.include(Client.class.getSimpleName())//
 				.warmupIterations(1)//
 				.warmupTime(TimeValue.seconds(30))//
 				.measurementIterations(1)//
-				.measurementTime(TimeValue.seconds(args.length >= 3 ? Integer.parseInt(args[2]) : 10))//
-				.threads(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY)//
+				.measurementTime(TimeValue.seconds(args.length >= 2 ? Integer.parseInt(args[1]) : 10))//
+				.threads(args.length >= 2 ? Integer.parseInt(args[0]) : CONCURRENCY)//
 				.forks(1)//
-				.addProfiler("stack")
+//				.addProfiler("stack", "lines=15")
 				.build();
 
 		new Runner(opt).run();
