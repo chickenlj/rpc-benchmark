@@ -8,9 +8,9 @@ public interface UserService {
 
 	public boolean createUser(User user);
 
-	public User getUser(Integer id);
+	public User getUser(long id);
 
-	public Page<User> listUser(Integer pageNo);
+	public Page<User> listUser(int pageNo);
 
 	default byte[] pingpong(byte[] object){
 		return object;
