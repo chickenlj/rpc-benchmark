@@ -1,8 +1,7 @@
 package benchmark.bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class User implements Serializable {
@@ -11,15 +10,15 @@ public class User implements Serializable {
 	private long id;
 	private String name;
 	private int sex;
-	private LocalDate birthday;
+	private Date birthday;
 	private String email;
 	private String mobile;
 	private String address;
 	private String icon;
 	private List<Integer> permissions;
 	private int status;
-	private LocalDateTime createTime;
-	private LocalDateTime updateTime;
+	private Date createTime;
+	private Date updateTime;
 
 	public long getId() {
 		return id;
@@ -45,11 +44,11 @@ public class User implements Serializable {
 		this.sex = sex;
 	}
 
-	public LocalDate getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(LocalDate birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
@@ -101,19 +100,19 @@ public class User implements Serializable {
 		this.status = status;
 	}
 
-	public LocalDateTime getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(LocalDateTime createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public LocalDateTime getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(LocalDateTime updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 

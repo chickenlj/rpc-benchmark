@@ -1,7 +1,11 @@
 package benchmark.service;
 
-import java.nio.charset.StandardCharsets;
-
+import benchmark.bean.Page;
+import benchmark.bean.User;
+import benchmark.rpc.util.HttpClientUtils;
+import benchmark.rpc.util.JsonUtils;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.entity.EntityBuilder;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -10,13 +14,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import benchmark.bean.Page;
-import benchmark.bean.User;
-import benchmark.rpc.util.HttpClientUtils;
-import benchmark.rpc.util.JsonUtils;
+import java.nio.charset.StandardCharsets;
 
 /**
  * only for client
@@ -76,7 +74,7 @@ public class UserServiceJsonHttpClientImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(long id) {
+	public User getUser(Integer id) {
 		try {
 			String url = URL_GET_USER + id;
 
@@ -92,7 +90,7 @@ public class UserServiceJsonHttpClientImpl implements UserService {
 	}
 
 	@Override
-	public Page<User> listUser(int pageNo) {
+	public Page<User> listUser(Integer pageNo) {
 		try {
 			String url = URL_LIST_USER + pageNo;
 
