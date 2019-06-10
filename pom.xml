@@ -12,44 +12,8 @@
 
     <modules>
         <module>benchmark-base</module>
-        <module>armeria-client</module>
-        <module>armeria-server</module>
         <module>dubbo-client</module>
         <module>dubbo-server</module>
-        <module>dubbo-kryo-client</module>
-        <module>dubbo-kryo-server</module>
-        <module>grpc-client</module>
-        <module>grpc-server</module>
-        <module>hprose-client</module>
-        <module>hprose-server</module>
-        <module>jupiter-client</module>
-        <module>jupiter-server</module>
-        <module>motan-client</module>
-        <module>motan-server</module>
-        <module>netty-client</module>
-        <module>netty-server</module>
-        <module>rapidoid-client</module>
-        <module>rapidoid-server</module>
-        <module>servicecomb-client</module>
-        <module>servicecomb-server</module>
-        <module>sofa-client</module>
-        <module>sofa-server</module>
-        <module>springboot-client</module>
-        <module>springboot-server</module>
-        <module>springboot-undertow-client</module>
-        <module>springboot-undertow-server</module>
-        <module>springwebflux-client</module>
-        <module>springwebflux-server</module>
-        <module>thrift-client</module>
-        <module>thrift-server</module>
-        <module>turbo-rpc-client</module>
-        <module>turbo-rpc-server</module>
-        <module>turbo-rest-client</module>
-        <module>turbo-rest-server</module>
-        <module>undertow-async-client</module>
-        <module>undertow-async-server</module>
-        <module>undertow-client</module>
-        <module>undertow-server</module>
     </modules>
 
     <build>

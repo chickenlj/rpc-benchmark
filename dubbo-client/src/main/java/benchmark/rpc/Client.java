@@ -22,7 +22,7 @@ import benchmark.service.UserService;
 
 @State(Scope.Benchmark)
 public class Client extends AbstractClient {
-	public static final int CONCURRENCY = 32;
+	public static final int CONCURRENCY = 200;
 
 	private final ClassPathXmlApplicationContext context;
 	private final UserService userService;
@@ -76,13 +76,14 @@ public class Client extends AbstractClient {
 	}
 
 	public static void main(String[] args) throws Exception {
+               System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY);
 		Options opt = new OptionsBuilder()//
 				.include(Client.class.getSimpleName())//
 				.warmupIterations(3)//
 				.warmupTime(TimeValue.seconds(10))//
 				.measurementIterations(3)//
-				.measurementTime(TimeValue.seconds(10))//
-				.threads(CONCURRENCY)//
+				.measurementTime(TimeValue.seconds(args.length >= 3 ? Integer.parseInt(args[2]) : 10))//
+				.threads(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY)//
 				.forks(1)//
 				.build();
 

@@ -43,7 +43,7 @@ public class benchmark {
         var folder = new File(".");
 
         return Stream.of(folder.list())
-                .filter(name -> name.endsWith("-client"))
+                .filter(name -> name.endsWith("dubbo-client"))
                 .map(name -> name.substring(0, name.length() - "-client".length()))
                 .sorted();
     }
