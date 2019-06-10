@@ -75,6 +75,7 @@ public class Client extends AbstractClient {
 				.measurementTime(TimeValue.seconds(args.length >= 3 ? Integer.parseInt(args[2]) : 10))//
 				.threads(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY)//
 				.forks(1)//
+				.addProfiler("stack")
 				.build();
 
 		new Runner(opt).run();
