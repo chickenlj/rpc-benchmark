@@ -67,7 +67,7 @@ public class Client extends AbstractClient {
 
 	public static void main(String[] args) throws Exception {
                System.err.println(args.length >= 2 ? Integer.parseInt(args[0]) : CONCURRENCY);
-		System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : CONCURRENCY);
+		System.err.println(args.length >= 2 ? Integer.parseInt(args[1]) : 10);
 		Options opt = new OptionsBuilder()//
 				.include(Client.class.getSimpleName())//
 				.warmupIterations(1)//
