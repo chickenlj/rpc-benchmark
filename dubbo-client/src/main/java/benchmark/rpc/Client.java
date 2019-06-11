@@ -42,7 +42,7 @@ public class Client extends AbstractClient {
 	}
 
 	@Benchmark
-	@BenchmarkMode({ Mode.Throughput})
+	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime})
 	@OutputTimeUnit(TimeUnit.MILLISECONDS)
 	@Override
 	public boolean createUser() throws Exception {
@@ -50,7 +50,7 @@ public class Client extends AbstractClient {
 	}
 
 	@Benchmark
-	@BenchmarkMode({ Mode.Throughput })
+	@BenchmarkMode({ Mode.Throughput, Mode.AverageTime, Mode.SampleTime })
 	@OutputTimeUnit(TimeUnit.MILLISECONDS)
 	@Override
 	public User getUser() throws Exception {
