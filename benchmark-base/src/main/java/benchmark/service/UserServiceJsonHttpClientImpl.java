@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * only for client
- *
+ * 
  * @author Hank
  *
  */
@@ -74,7 +74,7 @@ public class UserServiceJsonHttpClientImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(long id) {
+	public User getUser(Integer id) {
 		try {
 			String url = URL_GET_USER + id;
 
@@ -90,7 +90,7 @@ public class UserServiceJsonHttpClientImpl implements UserService {
 	}
 
 	@Override
-	public Page<User> listUser(int pageNo) {
+	public Page<User> listUser(Integer pageNo) {
 		try {
 			String url = URL_LIST_USER + pageNo;
 
