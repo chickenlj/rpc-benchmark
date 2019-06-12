@@ -11,6 +11,8 @@
 		port="8080" threads="600"/>
 	<!-- <dubbo:protocol name="dubbo" port="8080" serialization="kryo" /> -->
 
+	<dubbo:provider filter="-default" />
+
 	<dubbo:registry address="N/A" />
 
 	<!-- 声明需要暴露的服务接口 -->
