@@ -9,6 +9,7 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.profile.StackProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
@@ -98,7 +99,7 @@ public class Client extends AbstractClient {
                 .measurementIterations(iteration)//
                 .measurementTime(TimeValue.seconds(runtimeSeconds))//
                 .threads(CONCURRENCY)//
-//				.addProfiler(StackProfiler.class, "lines=30;top=30")
+				.addProfiler(StackProfiler.class, "lines=10;top=10")
 //				.addProfiler("dtraceasm")
                 .forks(0)//m
                 .build();
